@@ -1,87 +1,170 @@
-# MoviePy
+# Aircraft Job Card Database Application
 
+Aplikasi web untuk mengelola database Job Card pesawat menggunakan Python Flask.
 
-[![MoviePy page on the Python Package Index](https://badge.fury.io/py/moviepy.svg)](https://pypi.org/project/moviepy/) [![Discuss MoviePy on Gitter](https://img.shields.io/gitter/room/movie-py/gitter?color=46BC99&logo=gitter)](Gitter_) [![Build status on gh-actions](https://img.shields.io/github/actions/workflow/status/Zulko/moviepy/test_suite.yml?logo=github)](https://github.com/Zulko/moviepy/actions/workflows/test_suite.yml) [![Code coverage from coveralls.io](https://img.shields.io/coveralls/github/Zulko/moviepy/master?logo=coveralls)](https://coveralls.io/github/Zulko/moviepy?branch=master)
+## Fitur
 
-> [!NOTE]
-> MoviePy recently upgraded to v2.0, introducing major breaking changes. You can consult the last v1 docs [here](https://zulko.github.io/moviepy/v1.0.3/) but beware that v1 is no longer maintained. For more info on how to update your code from v1 to v2, see [this guide](https://zulko.github.io/moviepy/getting_started/updating_to_v2.html).
+- **CRUD Operations**: Tambah, Edit, Hapus job card
+- **Filter & Search**: Filter berdasarkan Check Type dan Aircraft Registration
+- **Search**: Pencarian berdasarkan Card Number, Task Reference, Task Title, Description, dan Zone
+- **Export**: Export data yang difilter ke Excel
+- **Multi-Aircraft Support**: Kelola status job card untuk 7 pesawat (PK-YSV, PK-YSG, PK-YSZ, PK-YSH, PK-YSN, PK-YRD, PK-YST)
+- **Web-Based Interface**: Akses melalui browser dengan UI yang modern dan responsif
 
-MoviePy (online documentation [here](https://zulko.github.io/moviepy/)) is a Python library for video editing: cuts, concatenations, title insertions, video compositing (a.k.a. non-linear editing), video processing, and creation of custom effects.
+## Struktur Database
 
-MoviePy can read and write all the most common audio and video formats, including GIF, and runs on Windows/Mac/Linux, with Python 3.9+.
+Database Excel memiliki 4 sheet:
+1. **Sheet1**: Database utama job card (1673+ records)
+2. **Sheet2**: Data registrasi pesawat (7 aircraft)
+3. **Sheet3**: Template job card
+4. **Sheet4**: Interface input
 
-# Example
+## Instalasi
 
-In this example we open a video file, select the subclip between 10 and
-20 seconds, add a title at the center of the screen, and write the
-result to a new file:
-
-``` python
-from moviepy import VideoFileClip, TextClip, CompositeVideoClip
-
-# Load file example.mp4 and keep only the subclip from 00:00:10 to 00:00:20
-# Reduce the audio volume to 80% of its original volume
-
-clip = (
-    VideoFileClip("long_examples/example2.mp4")
-    .subclipped(10, 20)
-    .with_volume_scaled(0.8)
-)
-
-# Generate a text clip. You can customize the font, color, etc.
-txt_clip = TextClip(
-    font="Arial.ttf",
-    text="Hello there!",
-    font_size=70,
-    color='white'
-).with_duration(10).with_position('center')
-
-# Overlay the text clip on the first video clip
-final_video = CompositeVideoClip([clip, txt_clip])
-final_video.write_videofile("result.mp4")
+1. Install dependencies:
+```bash
+pip install -r requirements.txt
 ```
 
-# How MoviePy works
+atau
 
-Under the hood, MoviePy imports media (video frames, images, sounds) and converts them into Python objects (numpy arrays) so that every pixel becomes accessible, and video or audio effects can be defined in just a few lines of code (see the [built-in effects]() for examples).
+```bash
+python3 -m pip install -r requirements.txt
+```
 
-The library also provides ways to mix clips together (concatenations, playing clips side by side or on top of each other with transparency, etc.). The final clip is then encoded back into mp4/webm/gif/etc.
+2. Pastikan file `Aircraft_Jobcard_Database.xlsm` ada di folder `uploads/`
 
-This makes MoviePy very flexible and approachable, albeit slower than using ffmpeg directly due to heavier data import/export operations.  
+## Cara Menjalankan
 
+1. Jalankan aplikasi Flask:
+```bash
+python app.py
+```
 
-# Installation
+atau
 
-Intall moviepy with `pip install moviepy`. For additional installation options, such as a custom FFMPEG or for previewing, see [this section](https://zulko.github.io/moviepy/getting_started/install.html). For development, clone that repo locally and install with `pip install -e .`
+```bash
+python3 app.py
+```
 
-# Documentation
+2. Buka browser dan akses:
+```
+http://localhost:5000
+```
 
-The online documentation ([here](https://zulko.github.io/moviepy/)) is automatically built at every push to the master branch. To build the documentation locally, install the extra dependencies via `pip install moviepy[doc]`, then go to the `docs` folder and run `make html`.
+## Penggunaan
 
-# Contribute
+### Menambah Job Card
+1. Klik tombol "➕ Add Job Card"
+2. Isi form dengan data job card
+3. Klik "Save"
 
-MoviePy is open-source software originally written by
-[Zulko](https://github.com/Zulko) and released under the MIT licence.
-The project is hosted on [GitHub](https://github.com/Zulko/moviepy),
-where everyone is welcome to contribute and open issues or give feedback Please read our [Contributing
-Guidelines](https://github.com/Zulko/moviepy/blob/master/CONTRIBUTING.md).
-To ask for help or simply discuss usage and examples, use [our Reddit channel](https://www.reddit.com/r/moviepy/).
+### Mengedit Job Card
+1. Klik tombol "Edit" pada row job card yang ingin diedit
+2. Edit data yang diperlukan
+3. Klik "Save"
 
-# Maintainers
+### Menghapus Job Card
+1. Klik tombol "Delete" pada row job card yang ingin dihapus
+2. Konfirmasi penghapusan
 
-## Active maintainers
--   [Zulko](https://github.com/Zulko) (owner)
--   [@osaajani](https://github.com/OsaAjani) led the development of v2 ([MR](https://github.com/Zulko/moviepy/pull/2024))
--   [@tburrows13](https://github.com/tburrows13)
--   [@keikoro](https://github.com/keikoro)
+### Filter Data
+- **Check Type**: Pilih tipe check dari dropdown (1A CHECK, 2A CHECK, 4A CHECK, 8A CHECK)
+- **Aircraft**: Pilih registrasi pesawat dari dropdown
+- **Search**: Ketik keyword untuk mencari di Card Number, Task Reference, Task Title, Description, atau Zone
+- **Clear Filters**: Klik untuk menghapus semua filter
 
-## Past maintainers and thanks
--   [@mgaitan](https://github.com/mgaitan)
--   [@earney](https://github.com/earney)
--   [@mbeacom](https://github.com/mbeacom)
--   [@overdrivr](https://github.com/overdrivr)
--   [@ryanfox](https://github.com/ryanfox)
--   [@mondeja](https://github.com/mondeja)
+### Export Data
+1. Filter data sesuai kebutuhan
+2. Klik tombol "📥 Export"
+3. File Excel akan otomatis terdownload
 
-**Maintainers wanted!** this library has only been kept afloat by the involvement of its maintainers, and there are times where none of us have enough bandwidth. We'd love to hear about developers interested in giving a hand and solving some of the issues (especially the ones that affect you) or reviewing pull requests. Open
-an issue or contact us directly if you are interested. Thanks!
+### Menyimpan Perubahan
+- Klik tombol "💾 Save Changes" untuk menyimpan semua perubahan ke database Excel
+
+### Refresh Data
+- Klik tombol "🔄 Refresh" untuk memuat ulang data dari database
+
+## Struktur Kode
+
+```
+.
+├── app.py                  # Flask application (API endpoints)
+├── models.py              # Data models (JobCard, Aircraft)
+├── database.py            # Database handler untuk operasi Excel
+├── requirements.txt       # Python dependencies
+├── templates/
+│   └── index.html         # Main HTML template
+├── static/
+│   ├── css/
+│   │   └── style.css      # Styling
+│   └── js/
+│       └── app.js         # Frontend JavaScript
+└── uploads/
+    └── Aircraft_Jobcard_Database.xlsm  # Database Excel
+```
+
+## API Endpoints
+
+- `GET /` - Main page
+- `GET /api/jobcards` - Get all job cards (with optional filters)
+- `GET /api/jobcards/<index>` - Get single job card
+- `POST /api/jobcards` - Add new job card
+- `PUT /api/jobcards/<index>` - Update job card
+- `DELETE /api/jobcards/<index>` - Delete job card
+- `POST /api/save` - Save changes to database
+- `GET /api/metadata` - Get metadata (check types, aircraft)
+- `POST /api/export` - Export filtered data to Excel
+
+## Requirements
+
+- Python 3.7+
+- Flask >= 2.3.0
+- openpyxl >= 3.1.0
+- pandas >= 2.0.0
+
+## Teknologi
+
+- **Backend**: Python Flask
+- **Frontend**: HTML, CSS, JavaScript (Vanilla)
+- **Database**: Excel (.xlsm) dengan openpyxl dan pandas
+- **UI**: Modern gradient design dengan responsive layout
+
+## Catatan
+
+- Aplikasi berjalan di port 5000 secara default
+- Data disimpan dalam format Excel (.xlsm)
+- Backup database secara berkala untuk menghindari kehilangan data
+- Pastikan file Excel tidak dibuka di aplikasi lain saat menggunakan aplikasi ini
+- Aplikasi ini menggunakan web interface, tidak memerlukan Tkinter
+
+## Troubleshooting
+
+### Error: Database file not found
+Pastikan file `Aircraft_Jobcard_Database.xlsm` ada di folder `uploads/`
+
+### Error: Permission denied
+Tutup file Excel jika sedang dibuka di aplikasi lain (Microsoft Excel, LibreOffice, dll)
+
+### Error loading data
+Periksa format file Excel dan pastikan sheet names sesuai (Sheet1, Sheet2 , Sheet3, Sheet4 )
+
+### Port already in use
+Jika port 5000 sudah digunakan, edit `app.py` dan ubah port di baris:
+```python
+app.run(host='0.0.0.0', port=5000, debug=True)
+```
+
+## Screenshot
+
+Aplikasi menampilkan:
+- Header dengan gradient background
+- Filter controls (Check Type, Aircraft, Search)
+- Action buttons (Add, Save, Export, Refresh)
+- Tabel data job cards dengan pagination
+- Modal dialog untuk add/edit job card
+- Status bar untuk feedback
+
+## Lisensi
+
+Aplikasi ini dibuat untuk mengelola Aircraft Job Card Database.
