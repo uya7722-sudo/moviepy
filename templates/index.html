@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aircraft Job Card Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✈️ Aircraft Job Card Database</h1>
+            <p class="subtitle">Manage aircraft maintenance job cards</p>
+        </header>
+
+        <div class="controls">
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="checkTypeFilter">Check Type:</label>
+                    <select id="checkTypeFilter">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="aircraftFilter">Aircraft:</label>
+                    <select id="aircraftFilter">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="searchInput">Search:</label>
+                    <input type="text" id="searchInput" placeholder="Search job cards...">
+                </div>
+
+                <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-primary" onclick="showAddDialog()">➕ Add Job Card</button>
+                <button class="btn btn-success" onclick="saveChanges()">💾 Save Changes</button>
+                <button class="btn btn-info" onclick="exportData()">📥 Export</button>
+                <button class="btn btn-secondary" onclick="refreshData()">🔄 Refresh</button>
+            </div>
+        </div>
+
+        <div class="status" id="statusBar">
+            <span id="statusText">Loading...</span>
+        </div>
+
+        <div class="table-container">
+            <table id="jobcardsTable">
+                <thead>
+                    <tr>
+                        <th>Check Type</th>
+                        <th>Item No</th>
+                        <th>Card Number</th>
+                        <th>Task Reference</th>
+                        <th>Task Title</th>
+                        <th>Zone</th>
+                        <th>A/C Type</th>
+                        <th>Type of Insp</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="9" class="loading">Loading data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal for Add/Edit Job Card -->
+    <div id="jobcardModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add Job Card</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="jobcardForm">
+                    <input type="hidden" id="jobcardIndex">
+                    
+                    <div class="form-section">
+                        <h3>Basic Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="checkType">Check Type: *</label>
+                            <select id="checkType" required>
+                                <option value="">Select...</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="itemNo">Item No: *</label>
+                            <input type="number" id="itemNo" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number:</label>
+                            <input type="text" id="cardNumber">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="taskReference">Task Reference:</label>
+                            <input type="text" id="taskReference">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="taskTitle">Task Title:</label>
+                            <input type="text" id="taskTitle">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea id="description" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="zone">Zone:</label>
+                            <input type="text" id="zone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acType">A/C Type:</label>
+                            <input type="text" id="acType">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="typeOfInsp">Type of Insp:</label>
+                            <input type="text" id="typeOfInsp">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Aircraft Status</h3>
+                        <div id="aircraftStatusFields"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

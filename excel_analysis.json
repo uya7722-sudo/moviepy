@@ -1,0 +1,299 @@
+{
+  "Sheet1": {
+    "columns": [
+      "CHECK TYPE",
+      "ITEM NO",
+      "CARD NUMBER1",
+      "TASK REFERENCE",
+      "TASK TITLE",
+      "DESCRIPTION",
+      "ZONE",
+      "A/C TYPE",
+      "TYPE OF INSP",
+      "PK-YSV",
+      "PK-YSG",
+      "PK-YSZ",
+      "PK-YSH",
+      "PK-YSN",
+      "PK-YRD",
+      "PK-YST"
+    ],
+    "shape": [
+      1673,
+      16
+    ],
+    "dtypes": {
+      "CHECK TYPE": "object",
+      "ITEM NO": "int64",
+      "CARD NUMBER1": "object",
+      "TASK REFERENCE": "object",
+      "TASK TITLE": "object",
+      "DESCRIPTION": "object",
+      "ZONE": "object",
+      "A/C TYPE": "object",
+      "TYPE OF INSP": "object",
+      "PK-YSV": "object",
+      "PK-YSG": "object",
+      "PK-YSZ": "object",
+      "PK-YSH": "float64",
+      "PK-YSN": "float64",
+      "PK-YRD": "float64",
+      "PK-YST": "float64"
+    },
+    "sample_data": [
+      {
+        "CHECK TYPE": "1A CHECK",
+        "ITEM NO": 1,
+        "CARD NUMBER1": "YSV 001",
+        "TASK REFERENCE": "12-013-33-01",
+        "TASK TITLE": "CHECK/SERVICE APU OIL QUANTITY",
+        "DESCRIPTION": "CHECK THE APU OIL QUANTITY AND SERVICE APU OIL AS REQUIRED. NOTE: APPLICABLE TO AIRPLANES WITH SUNDSTRAND APS2000 APU.",
+        "ZONE": "101/205/703",
+        "A/C TYPE": "B737-300",
+        "TYPE OF INSP": "1A CHECK",
+        "PK-YSV": NaN,
+        "PK-YSG": NaN,
+        "PK-YSZ": NaN,
+        "PK-YSH": NaN,
+        "PK-YSN": NaN,
+        "PK-YRD": NaN,
+        "PK-YST": NaN
+      },
+      {
+        "CHECK TYPE": "1A CHECK",
+        "ITEM NO": 2,
+        "CARD NUMBER1": "YSV 002",
+        "TASK REFERENCE": "27-011-02-01",
+        "TASK TITLE": "VISUAL CHECK LEFT AILERON & TAB",
+        "DESCRIPTION": "VISUALLY CHECK THE LEFT AILERON, AILERON TAB, AND EXPOSED LINKAGES FOR CONDITION AND SECURITY OF INSTALLATION.",
+        "ZONE": 306,
+        "A/C TYPE": "B737-300",
+        "TYPE OF INSP": "1A CHECK",
+        "PK-YSV": NaN,
+        "PK-YSG": NaN,
+        "PK-YSZ": NaN,
+        "PK-YSH": NaN,
+        "PK-YSN": NaN,
+        "PK-YRD": NaN,
+        "PK-YST": NaN
+      },
+      {
+        "CHECK TYPE": "1A CHECK",
+        "ITEM NO": 3,
+        "CARD NUMBER1": "YSV 003",
+        "TASK REFERENCE": "27-011-02-02",
+        "TASK TITLE": "VISUAL CHECK RIGHT AILERON & TAB",
+        "DESCRIPTION": "VISUALLY CHECK THE RIGHT AILERON, AILERON TAB, AND EXPOSED LINKAGES FOR CONDITION AND SECURITY OF INSTALLATION.",
+        "ZONE": 406,
+        "A/C TYPE": "B737-300",
+        "TYPE OF INSP": "1A CHECK",
+        "PK-YSV": NaN,
+        "PK-YSG": NaN,
+        "PK-YSZ": NaN,
+        "PK-YSH": NaN,
+        "PK-YSN": NaN,
+        "PK-YRD": NaN,
+        "PK-YST": NaN
+      },
+      {
+        "CHECK TYPE": "1A CHECK",
+        "ITEM NO": 4,
+        "CARD NUMBER1": "YSV 004",
+        "TASK REFERENCE": "27-060-00-01",
+        "TASK TITLE": "VISUAL CHECK LEFT WING LEADING EDGE",
+        "DESCRIPTION": "VISUALLY CHECK THE LEFT WING LEADING EDGE FLAPS, SLATS, SPOILERS AND VISIBLE ACTUATING MECHANISMS FOR CONDITION AND SECURITY OF INSTALLATION.",
+        "ZONE": "302/303/307/309",
+        "A/C TYPE": "B737-300",
+        "TYPE OF INSP": "1A CHECK",
+        "PK-YSV": NaN,
+        "PK-YSG": NaN,
+        "PK-YSZ": NaN,
+        "PK-YSH": NaN,
+        "PK-YSN": NaN,
+        "PK-YRD": NaN,
+        "PK-YST": NaN
+      },
+      {
+        "CHECK TYPE": "1A CHECK",
+        "ITEM NO": 5,
+        "CARD NUMBER1": "YSV 005",
+        "TASK REFERENCE": "27-060-00-02",
+        "TASK TITLE": "VISUAL CHECK RIGHT WING LEADING EDGE",
+        "DESCRIPTION": "VISUALLY CHECK THE RIGHT WING LEADING EDGE FLAPS, SLATS, SPOILERS, AND VISIBLE ACTUATING MECHANISMS FOR CONDITION AND SECURITY OF INSTALLATION.",
+        "ZONE": "402/403/407/409",
+        "A/C TYPE": "B737-300",
+        "TYPE OF INSP": "1A CHECK",
+        "PK-YSV": NaN,
+        "PK-YSG": NaN,
+        "PK-YSZ": NaN,
+        "PK-YSH": NaN,
+        "PK-YSN": NaN,
+        "PK-YRD": NaN,
+        "PK-YST": NaN
+      }
+    ]
+  },
+  "Sheet2 ": {
+    "columns": [
+      "A/C REG",
+      "MSN",
+      "A/C TYPE"
+    ],
+    "shape": [
+      7,
+      3
+    ],
+    "dtypes": {
+      "A/C REG": "object",
+      "MSN": "int64",
+      "A/C TYPE": "object"
+    },
+    "sample_data": [
+      {
+        "A/C REG": "PK-YSV",
+        "MSN": 24283,
+        "A/C TYPE": "B737-300"
+      },
+      {
+        "A/C REG": "PK-YSG",
+        "MSN": 23930,
+        "A/C TYPE": "B737-300"
+      },
+      {
+        "A/C REG": "PK-YSZ",
+        "MSN": 23451,
+        "A/C TYPE": "B737-300"
+      },
+      {
+        "A/C REG": "PK-YSH",
+        "MSN": 27925,
+        "A/C TYPE": "B737-300"
+      },
+      {
+        "A/C REG": "PK-YSN",
+        "MSN": 24362,
+        "A/C TYPE": "B737-300"
+      }
+    ]
+  },
+  "Sheet3": {
+    "columns": [
+      "Unnamed: 0",
+      "Unnamed: 1",
+      "Unnamed: 2",
+      "Unnamed: 3",
+      "Unnamed: 4",
+      "Unnamed: 5",
+      "Unnamed: 6",
+      "Unnamed: 7",
+      "Unnamed: 8",
+      "TAS/TD-E008"
+    ],
+    "shape": [
+      57,
+      10
+    ],
+    "dtypes": {
+      "Unnamed: 0": "float64",
+      "Unnamed: 1": "object",
+      "Unnamed: 2": "object",
+      "Unnamed: 3": "object",
+      "Unnamed: 4": "float64",
+      "Unnamed: 5": "float64",
+      "Unnamed: 6": "object",
+      "Unnamed: 7": "object",
+      "Unnamed: 8": "float64",
+      "TAS/TD-E008": "float64"
+    },
+    "sample_data": [
+      {
+        "Unnamed: 0": NaN,
+        "Unnamed: 1": NaN,
+        "Unnamed: 2": "JOB CARD",
+        "Unnamed: 3": NaN,
+        "Unnamed: 4": NaN,
+        "Unnamed: 5": NaN,
+        "Unnamed: 6": "A/C TYPE",
+        "Unnamed: 7": ":",
+        "Unnamed: 8": NaN,
+        "TAS/TD-E008": NaN
+      },
+      {
+        "Unnamed: 0": NaN,
+        "Unnamed: 1": NaN,
+        "Unnamed: 2": NaN,
+        "Unnamed: 3": NaN,
+        "Unnamed: 4": NaN,
+        "Unnamed: 5": NaN,
+        "Unnamed: 6": "A/C REG.",
+        "Unnamed: 7": ":",
+        "Unnamed: 8": NaN,
+        "TAS/TD-E008": NaN
+      },
+      {
+        "Unnamed: 0": NaN,
+        "Unnamed: 1": NaN,
+        "Unnamed: 2": "CARD NUMBER   :",
+        "Unnamed: 3": NaN,
+        "Unnamed: 4": NaN,
+        "Unnamed: 5": NaN,
+        "Unnamed: 6": "A/C MSN",
+        "Unnamed: 7": ":",
+        "Unnamed: 8": NaN,
+        "TAS/TD-E008": NaN
+      },
+      {
+        "Unnamed: 0": NaN,
+        "Unnamed: 1": NaN,
+        "Unnamed: 2": "TASK REFERENCE :",
+        "Unnamed: 3": NaN,
+        "Unnamed: 4": NaN,
+        "Unnamed: 5": NaN,
+        "Unnamed: 6": "TYPE OF INSP",
+        "Unnamed: 7": ":",
+        "Unnamed: 8": NaN,
+        "TAS/TD-E008": NaN
+      },
+      {
+        "Unnamed: 0": NaN,
+        "Unnamed: 1": NaN,
+        "Unnamed: 2": NaN,
+        "Unnamed: 3": NaN,
+        "Unnamed: 4": NaN,
+        "Unnamed: 5": NaN,
+        "Unnamed: 6": NaN,
+        "Unnamed: 7": NaN,
+        "Unnamed: 8": NaN,
+        "TAS/TD-E008": NaN
+      }
+    ]
+  },
+  "Sheet4 ": {
+    "columns": [
+      "Input",
+      "Keterangan"
+    ],
+    "shape": [
+      3,
+      2
+    ],
+    "dtypes": {
+      "Input": "object",
+      "Keterangan": "object"
+    },
+    "sample_data": [
+      {
+        "Input": "A/C REG",
+        "Keterangan": "Dropdown (PK-YSV, PK-YSG, dll)"
+      },
+      {
+        "Input": "CHECK TYPE",
+        "Keterangan": "Dropdown (A1, A2, A4, A8)"
+      },
+      {
+        "Input": "Tombol",
+        "Keterangan": "\ud83d\udd18 Generate Job Card"
+      }
+    ]
+  }
+}
